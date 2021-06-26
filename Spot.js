@@ -1,5 +1,6 @@
 const AUTHORIZE = "https://accounts.spotify.com/authorize"
 const TOKEN = "https://accounts.spotify.com/api/token";
+const REDIRECTURI = "https://kevinkevink.github.io/SpotTest/"
 
 function requestAuthorization(){
   client_id = "abb0f2503c27448b9c53f509d4112949";
@@ -8,7 +9,7 @@ function requestAuthorization(){
   let url = AUTHORIZE;
     url += "?client_id=" + client_id;
     url += "&response_type=code";
-    url += "&redirect_uri=" + encodeURI("https://makeratplay.github.io/SpotifyWebAPI/");
+    url += "&redirect_uri=" + encodeURI(REDIRECTURI);
     url += "&show_dialog=true";
     url += "&scope=user-read-private user-read-email user-modify-playback-state user-read-playback-position user-library-read streaming user-read-playback-state user-read-recently-played playlist-read-private";
     window.location.href = url; // Show Spotify's authorization screen
