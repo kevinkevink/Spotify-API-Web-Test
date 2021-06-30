@@ -13,6 +13,7 @@ function requestAuthorization(){
     url += "&show_dialog=true";
     url += "&scope=user-read-private user-read-email user-modify-playback-state user-read-playback-position user-library-read streaming user-read-playback-state user-read-recently-played playlist-read-private";
     window.location.href = url; // Show Spotify's authorization screen
+    console.log("YUH");
 }
 //GETS CODE FROM QUERY STRING
 function getCode(){
@@ -45,6 +46,7 @@ function callAuthorizationApi(body){
 }
 //reads token response
 function handleAuthorizationResponse(){
+  console.log("YUH");
   if ( this.status == 200 ){
       var data = JSON.parse(this.responseText);
       console.log(data);
