@@ -2,6 +2,22 @@ const AUTHORIZE = "https://accounts.spotify.com/authorize"
 const TOKEN = "https://accounts.spotify.com/api/token";
 const REDIRECTURI = "https://kevinkevink.github.io/SpotTest/"
 
+function onPageLoad(){
+  access_token = localStorage.getItem("access_token");
+  if ( access_token == null ){
+  // we don't have an access token so present token section
+    document.getElementByClass("BLI").style.display = 'block'; 
+    document.getElementByClass("ALI").style.display = 'none'; 
+  }
+  else {
+  // we have an access token so present device section
+    document.getElementByClass("BLI").style.display = 'none'; 
+    document.getElementByClass("ALI").style.display = 'block'; 
+  }
+}
+
+
+
 function requestAuthorization(){
   client_id = "abb0f2503c27448b9c53f509d4112949";
   client_secret = "742582b3ead642e0b2ccd825fda0fe44";
