@@ -6,13 +6,13 @@ function onPageLoad(){
   access_token = localStorage.getItem("access_token");
   if ( access_token == null ){
   // we don't have an access token so present token section
-    document.getElementByClassName("BLI").style.display = 'block'; 
-    document.getElementByClassName("ALI").style.display = 'none'; 
+    document.getElementsByClassName("BLI").style.display = 'block'; 
+    document.getElementsByClassName("ALI").style.display = 'none'; 
   }
   else {
   // we have an access token so present device section
-    document.getElementByClassName("BLI").style.display = 'none'; 
-    document.getElementByClassName("ALI").style.display = 'block'; 
+    document.getElementsByClassName("BLI").style.display = 'none'; 
+    document.getElementsByClassName("ALI").style.display = 'block'; 
   }
 }
 
