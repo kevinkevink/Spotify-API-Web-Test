@@ -1,3 +1,4 @@
+/* html {font-size: 100.01%;} */
 body {
   animation: 30000ms ease-in-out infinite color-change;
 }
@@ -25,13 +26,17 @@ body {
 
 #Welcome{
   background-color:whitesmoke;
+  font-size: 100%;
+  margin:auto;
 }
 #Button{
   background-color: whitesmoke;
 }
 #Note{
   background-color: whitesmoke;
+  font-size: 20%;
 }
 #NoteText{
   background-color: whitesmoke;
+  font-size: 10%;
 }
