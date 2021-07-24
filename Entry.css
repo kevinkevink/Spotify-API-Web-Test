@@ -31,22 +31,21 @@ body {
 
 #Welcome{
   color:whitesmoke;
-  font-size: 90%;
+  font-size: min(8vh, 8vw);
   margin:auto;
   margin:0px; 
-  padding:0px;
   text-align: center;
   grid-column: 2 / 2;
   grid-row: 2 / 2;
-  min-height: 50%;
-  min-width: 50%;
+  min-height: 100%;
+  min-width: 100%;
 }
 #Welcome2{
   color:whitesmoke;
-  font-size: 90%;
+  font-size: min(8vh, 8vw);
   margin:auto;
   margin:0px; 
-  padding:0px;
+  padding:1vh;
   text-align: center;
   grid-column: 2 / 2;
   grid-row: 4 / 4;
@@ -57,24 +56,24 @@ body {
   background-color: whitesmoke;
   color: lightgray;
   border:none;
-  font-size: 50%;
+  font-size: min(4vh, 4vw);
   border-radius: 20px;
   margin:auto;
-  min-height: 30%;
-  min-width: 30%;
+  height: 30%;
+  width: 30%;
   grid-column: 2 / 2;
   grid-row: 6 / 6;
 }
 #Note{
   color: whitesmoke;
-  font-size: 20%;
+  font-size: min(3vh, 3vw);
   margin:auto;
   grid-column: 2 / 2;
   grid-row: 7 / 7;
 }
 #NoteText{
   color: whitesmoke;
-  font-size: 10%;
+  font-size: min(2vh, 2vw);
   margin:auto;
   grid-column: 2 / 2;
   grid-row: 8 / 8;
