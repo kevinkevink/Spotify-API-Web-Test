@@ -1,6 +1,6 @@
 const AUTHORIZE = "https://accounts.spotify.com/authorize"
 const TOKEN = "https://accounts.spotify.com/api/token";
-const REDIRECTURI = "https://kevinkevink.github.io/SpotTest/"
+const REDIRECTURI = "https://kevinkevink.github.io/SpotTest/Home"
 
 function onPageLoad(){
   access_token = localStorage.getItem("access_token");
