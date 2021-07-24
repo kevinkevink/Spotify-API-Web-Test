@@ -1,4 +1,4 @@
-html {font-size: 1000.01%;}
+html {font-size: 500.01%;}
 body {
   animation: 30000ms ease-in-out infinite color-change;
 }
@@ -28,10 +28,15 @@ body {
   color:whitesmoke;
   font-size: 100%;
   margin:auto;
+  margin:0px; 
+  padding:0px;
+  text-align: center;
 }
 #Button{
   background-color: whitesmoke;
   margin:auto;
+  height: 30%;
+  width: 30%;
 }
 #Note{
   color: whitesmoke;
@@ -42,4 +47,7 @@ body {
   color: whitesmoke;
   font-size: 10%;
   margin:auto;
+}
+.text{
+  font-family: Verdana, Geneva, Tahoma, sans-serif
 }
