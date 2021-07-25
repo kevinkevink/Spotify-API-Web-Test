@@ -1,4 +1,4 @@
-body {
+html, body {
     background-color: rgb(68, 67, 67);
     height: 100%;
     margin: 0;
@@ -7,17 +7,33 @@ body {
 }
 .page {
     float: left;
-    background: #992213;
+    background: darkgray;
     min-height: 100%;
-    padding-top: 30px;
   }
   .bar {
-      height: 100%;
-      float: right;
-      background-color: black;
+    background-color: black;
+    height: 1000px;
+    width: 100px;
   }
-  .button{
+  .scrollitem{
       background-color: white;
       height: 10%;
       width: 10%;
+      margin:auto;
+      position: relative;
+  }
+  .container {
+    height: 100%;
+    background: #263729;
+  }
+  #lightsbar {
+    float:right;
+  }
+  #musicbar {
+    float:left;
+  }
+  .wrapper{
+    margin:auto;
+    height:100%;
+    width:100%;
   }

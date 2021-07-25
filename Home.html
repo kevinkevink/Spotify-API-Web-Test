@@ -5,21 +5,27 @@
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <link rel="stylesheet" type="text/css" href="Home.css"></link>
     <script src="Spot.js"></script>
+    <script src="slides.js"></script>
   </head>
 
   <body>
     <div class="container">
-      <div id="lights" class = "page">
+      <div id="page-1" class = "page">
         <h>You are On the lights Page!</h>
-        <div id = "lightsbar" class = "bar">
-          <div id="toMusic" class = "Button"></div>
+        <div id = "lightsbar" class = "bar"> 
+          <div id="lightswrapper" class = "wrapper">
+            <a href="#page-2" class="scrollitem">page 2</a>
+          </div>
+          <!--<a href="#page-1" id="toMusic" class="scrollitem selected">TEST</a> -->
         </div>
       </div>
-      <div id="music" class = "page">
-        <h>You are on the music Page!</h>
+      <div id="page-2" class = "page">
         <div id = "musicbar" class = "bar">
-          <div id="toLights" class = "Button"></div>
+          <div id="musicwrapper" class = "wrapper">
+            <a href="#page-1" class="scrollitem selected">page 1</a>
+          </div>
         </div>
+        <h>You are on the music Page!</h>
       </div>
     </div>
   </body>
