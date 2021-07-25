@@ -1,3 +1,23 @@
 body {
     background-color: rgb(68, 67, 67);
+    height: 100%;
+    margin: 0;
+    overflow-x: hidden;
+    position: relative;
 }
+.page {
+    float: left;
+    background: #992213;
+    min-height: 100%;
+    padding-top: 30px;
+  }
+  .bar {
+      height: 100%;
+      float: right;
+      background-color: black;
+  }
+  .button{
+      background-color: white;
+      height: 10%;
+      width: 10%;
+  }
