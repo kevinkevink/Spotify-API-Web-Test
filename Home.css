@@ -16,11 +16,9 @@ html, body {
     width: 100px;
   }
   .scrollitem{
-      background-color: white;
-      height: 10%;
-      width: 10%;
       margin:auto;
       position: relative;
+      margin-top: 47.5%;
   }
   .container {
     height: 100%;
@@ -33,7 +31,12 @@ html, body {
     float:left;
   }
   .wrapper{
-    margin:auto;
+    margin-top: 4vh;
+    margin-left:25%;
     height:100%;
     width:100%;
+  }
+  #discImage{
+    width:50%;
+    height: 5%;
   }
