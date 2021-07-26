@@ -14,7 +14,16 @@ $(document).ready(function() {
   
       $('.container').animate({
         marginLeft: margin
-      }, 1000);
+      }, 700);
       return false;
+    });
+    $('.bar').mouseover(function() {
+      $('.bar').css("background-color", "rgb(61, 61, 61)");
+      $('.bar').css("width", "110px");
+    });
+
+    $('.bar').mouseout(function(){
+      $('.bar').css("background-color", "black");
+      $('.bar').css("width", "100px");
     });
   });
