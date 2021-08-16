@@ -2,13 +2,20 @@ html, body {
     background-color: rgb(68, 67, 67);
     height: 100%;
     margin: 0;
+    padding:0;
+  
+    width:100%;
     overflow-x: hidden;
     position: relative;
+}
+.text{
+  font-family: Verdana, Geneva, Tahoma, sans-serif
 }
 .page {
     float: left;
     background: darkgray;
     min-height: 100%;
+
   }
   .bar {
     background-color: black;
@@ -37,6 +44,110 @@ html, body {
     width:100%;
   }
   #discImage{
-    width:50%;
-    height: 5%;
+    width:55px;
+    height: 55px;
   }
+  #lightImage{
+    width:55px;
+    height: 55px;
+  }
+  .lightsimage{
+    height: 70%;
+    width: 7vh;
+    grid-column: 2;
+  }
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+  grid-column: 4;
+}
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgb(63, 63, 63);
+  transition: .4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: rgb(163, 163, 163);
+  transition: .4s;
+  border-radius: 50%;
+}
+input:checked + .slider {
+  background-color: #ffffff;
+}
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+#mainBox{
+  display: grid;
+  width: 100% - 100px;
+  height:100vh;
+  grid-template-columns: 10% 80% 10%;
+  grid-template-rows: 5% 90% 5%;
+}
+#actualBox{
+  background-color: rgb(148, 148, 148);
+  border-radius: 20px;
+  width: 100%;
+  height:100%;
+  grid-row: 2;
+  grid-column: 2;
+  display:grid;
+  grid-template-columns: 15% 70% 15%;
+  grid-template-rows: 12.5% 12.5% 12.5% 12.5% 12.5% 12.5% 12.5% 12.5%;
+  row-gap: 5px;
+}
+#lightALLback{
+  grid-row:2;
+  grid-column:2;
+}
+#light1back{
+  grid-row:3;
+  grid-column:2;
+}
+#light2back{
+  grid-row:4;
+  grid-column:2;
+}
+#light3back{
+  grid-row:5;
+  grid-column:2;
+}
+#light4back{
+  grid-row:6;
+  grid-column:2;
+}
+#light5back{
+  grid-row:7;
+  grid-column: 2;
+}
+.lightback{
+  display: grid;
+  grid-template-columns: 20% 20% 30% 10% 20%;
+}
+.lightLabels{
+  align-items: center;
+  font-size: min(4vh, 4vw);
+}
+.slider + .lightLabels{
+  background-color: #ffffff;
+}
