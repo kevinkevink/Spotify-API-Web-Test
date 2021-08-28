@@ -3,16 +3,16 @@ const TOKEN = "https://accounts.spotify.com/api/token";
 const REDIRECTURI = "https://kevinkevink.github.io/SpotTest/Home"
 
 function onPageLoad(){
+  $("#lightstitle").css("color", "red")
   access_token = localStorage.getItem("access_token");
+  $("#text0").css("color", "red")
   if ( access_token == null ){
   // we don't have an access token so present token section
-    document.getElementsByClassName("BLI").style.display = 'block'; 
-    document.getElementsByClassName("ALI").style.display = 'none'; 
+  $("#lightstitle").append(" <b>Fail</b>.");
   }
   else {
   // we have an access token so present device section
-    document.getElementsByClassName("BLI").style.display = 'none'; 
-    document.getElementsByClassName("ALI").style.display = 'block'; 
+  $("#lightstitle").append(" <b>Success</b>.");
   }
 }
 
@@ -29,7 +29,6 @@ function requestAuthorization(){
     url += "&show_dialog=true";
     url += "&scope=user-read-private user-read-email user-modify-playback-state user-read-playback-position user-library-read streaming user-read-playback-state user-read-recently-played playlist-read-private";
     window.location.href = url; // Show Spotify's authorization screen
-    console.log("YUH");
 }
 //GETS CODE FROM QUERY STRING
 function getCode(){
@@ -40,15 +39,6 @@ function getCode(){
       code = urlParams.get('code')
   }
   return code;
-}
-
-//Refreshes token
-function refreshAccessToken(){
-  refresh_token = localStorage.getItem("refresh_token");
-  let body = "grant_type=refresh_token";
-  body += "&refresh_token=" + refresh_token;
-  body += "&client_id=" + client_id;
-  callAuthorizationApi(body);
 }
 
 //sends in tokens so u can make calls
