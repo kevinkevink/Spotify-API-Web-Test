@@ -13,10 +13,13 @@ function onPageLoad(){
   else {
   // we have an access token so present device section
   $("#lightstitle").append(" <b>Success</b>.");
+  refreshPlaylists();
   }
 }
 
-
+function refreshPlaylists(){
+  callApi( "GET", PLAYLISTS, null, handlePlaylistsResponse );
+}
 
 function requestAuthorization(){
   client_id = "abb0f2503c27448b9c53f509d4112949";
@@ -73,7 +76,27 @@ function handleAuthorizationResponse(){
   }
 }
 
+function handlePlaylistsResponse(){
+  if ( this.status == 200 ){
+      var data = JSON.parse(this.responseText);
+      data.items.forEach(item => addPlaylist(item));
+  }
+  else if ( this.status == 401 ){
+      //refreshAccessToken()
+  }
+  else {
+      console.log(this.responseText);
+      alert(this.responseText);
+  }
+}
 
+function addPlaylist(item){
+  //HTML TO ADD PLAYLIST TO PAGE
+  //let node = document.createElement("option");
+  //node.value = item.id;
+  //node.innerHTML = item.name + " (" + item.tracks.total + ")";
+  //document.getElementById("playlists").appendChild(node); 
+}
 //https://github.com/makeratplay/SpotifyWebAPI/blob/main/app.js
 
 //https://developer.spotify.com/documentation/general/guides/authorization-guide/
