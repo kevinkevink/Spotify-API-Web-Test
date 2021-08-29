@@ -4,6 +4,11 @@ const REDIRECTURI = "https://kevinkevink.github.io/SpotTest/Home";
 const client_id = "abb0f2503c27448b9c53f509d4112949";
 const client_secret = "742582b3ead642e0b2ccd825fda0fe44";
 
+
+var access_token = null;
+var currentPlaylist = "";
+
+
 function onPageLoad(){
   if ( window.location.search.length > 0 ){
     handleRedirect();
