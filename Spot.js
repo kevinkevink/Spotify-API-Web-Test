@@ -3,18 +3,25 @@ const TOKEN = "https://accounts.spotify.com/api/token";
 const REDIRECTURI = "https://kevinkevink.github.io/SpotTest/Home"
 
 function onPageLoad(){
-  $("#lightstitle").css("color", "red")
-  access_token = localStorage.getItem("access_token");
-  $("#text0").css("color", "red")
-  if ( access_token == null ){
-  // we don't have an access token so present token section
-  $("#lightstitle").append(" <b>Fail</b>.");
+  if ( window.location.search.length > 0 ){
+    handleRedirect();
+  }else{
+    access_token = localStorage.getItem("access_token");
+    if ( access_token == null ){
+      // we don't have an access token so present token section
+      $("#lightstitle").append(" <b>Fail</b>.");
+    }else{
+      // we have an access token so present device section
+      $("#lightstitle").append(" <b>Success</b>.");
+      refreshPlaylists();
   }
-  else {
-  // we have an access token so present device section
-  $("#lightstitle").append(" <b>Success</b>.");
-  refreshPlaylists();
   }
+}
+
+function handleRedirect(){
+  let code = getCode();
+  fetchAccessToken(code);
+  window.history.pushState("", "", redirect_uri); // remove param from url
 }
 
 function refreshPlaylists(){
@@ -44,6 +51,25 @@ function getCode(){
   return code;
 }
 
+function getCode(){
+  let code = null;
+  const queryString = window.location.search;
+  if ( queryString.length > 0 ){
+      const urlParams = new URLSearchParams(queryString);
+      code = urlParams.get('code')
+  }
+  return code;
+}
+
+function fetchAccessToken( code ){
+  let body = "grant_type=authorization_code";
+  body += "&code=" + code; 
+  body += "&redirect_uri=" + encodeURI(redirect_uri);
+  body += "&client_id=" + client_id;
+  body += "&client_secret=" + client_secret;
+  callAuthorizationApi(body);
+}
+
 //sends in tokens so u can make calls
 function callAuthorizationApi(body){
   let xhr = new XMLHttpRequest();
@@ -55,7 +81,6 @@ function callAuthorizationApi(body){
 }
 //reads token response
 function handleAuthorizationResponse(){
-  console.log("YUH");
   if ( this.status == 200 ){
       var data = JSON.parse(this.responseText);
       console.log(data);
