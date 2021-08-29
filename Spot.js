@@ -5,6 +5,7 @@ const REDIRECTURI = "https://kevinkevink.github.io/SpotTest/Home"
 function onPageLoad(){
   if ( window.location.search.length > 0 ){
     handleRedirect();
+    ("#lightstitle").append(" <b>TEST1</b>.");
   }else{
     access_token = localStorage.getItem("access_token");
     if ( access_token == null ){
@@ -19,6 +20,7 @@ function onPageLoad(){
 }
 
 function handleRedirect(){
+  ("#lightstitle").append(" <b>TEST2</b>.");
   let code = getCode();
   fetchAccessToken(code);
   window.history.pushState("", "", redirect_uri); // remove param from url
@@ -42,16 +44,7 @@ function requestAuthorization(){
 }
 //GETS CODE FROM QUERY STRING
 function getCode(){
-  let code = null;
-  const queryString = window.location.search;
-  if ( queryString.length > 0 ){
-      const urlParams = new URLSearchParams(queryString);
-      code = urlParams.get('code')
-  }
-  return code;
-}
-
-function getCode(){
+  ("#lightstitle").append(" <b>TEST3</b>.");
   let code = null;
   const queryString = window.location.search;
   if ( queryString.length > 0 ){
@@ -62,6 +55,7 @@ function getCode(){
 }
 
 function fetchAccessToken( code ){
+  ("#lightstitle").append(" <b>TEST4</b>.");
   let body = "grant_type=authorization_code";
   body += "&code=" + code; 
   body += "&redirect_uri=" + encodeURI(redirect_uri);
@@ -81,9 +75,8 @@ function callAuthorizationApi(body){
 }
 //reads token response
 function handleAuthorizationResponse(){
+  ("#lightstitle").append(" <b>TEST5</b>.");
   if ( this.status == 200 ){
-      var data = JSON.parse(this.responseText);
-      console.log(data);
       var data = JSON.parse(this.responseText);
       if ( data.access_token != undefined ){
           access_token = data.access_token;
