@@ -1,8 +1,12 @@
 const AUTHORIZE = "https://accounts.spotify.com/authorize";
 const TOKEN = "https://accounts.spotify.com/api/token";
 const REDIRECTURI = "https://kevinkevink.github.io/SpotTest/Home";
-const client_id = "abb0f2503c27448b9c53f509d4112949";
-const client_secret = "742582b3ead642e0b2ccd825fda0fe44";
+
+
+
+
+var client_id = "abb0f2503c27448b9c53f509d4112949";
+var client_secret = "742582b3ead642e0b2ccd825fda0fe44";
 
 
 var access_token = null;
@@ -38,9 +42,6 @@ function refreshPlaylists(){
 }
 
 function requestAuthorization(){
-  client_id = "abb0f2503c27448b9c53f509d4112949";
-  client_secret = "742582b3ead642e0b2ccd825fda0fe44";
-
   let url = AUTHORIZE;
     url += "?client_id=" + client_id;
     url += "&response_type=code";
