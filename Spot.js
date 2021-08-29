@@ -1,6 +1,8 @@
-const AUTHORIZE = "https://accounts.spotify.com/authorize"
+const AUTHORIZE = "https://accounts.spotify.com/authorize";
 const TOKEN = "https://accounts.spotify.com/api/token";
-const REDIRECTURI = "https://kevinkevink.github.io/SpotTest/Home"
+const REDIRECTURI = "https://kevinkevink.github.io/SpotTest/Home";
+const client_id = "abb0f2503c27448b9c53f509d4112949";
+const client_secret = "742582b3ead642e0b2ccd825fda0fe44";
 
 function onPageLoad(){
   if ( window.location.search.length > 0 ){
@@ -58,7 +60,7 @@ function fetchAccessToken( code ){
   $("#lightstitle").append(" <b>TEST4</b>.");
   let body = "grant_type=authorization_code";
   body += "&code=" + code; 
-  body += "&redirect_uri=" + encodeURI(redirect_uri);
+  body += "&redirect_uri=" + encodeURI(REDIRECTURI);
   body += "&client_id=" + client_id;
   body += "&client_secret=" + client_secret;
   callAuthorizationApi(body);
