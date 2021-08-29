@@ -23,7 +23,7 @@ function handleRedirect(){
   $("#lightstitle").append(" <b>TEST2</b>.");
   let code = getCode();
   fetchAccessToken(code);
-  window.history.pushState("", "", redirect_uri); // remove param from url
+  window.history.pushState("", "", REDIRECTURI); // remove param from url
 }
 
 function refreshPlaylists(){
