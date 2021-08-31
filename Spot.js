@@ -88,11 +88,8 @@ function handleAuthorizationResponse(){
       var data = JSON.parse(this.responseText);
       if ( data.access_token != undefined ){
           access_token = data.access_token;
+          localStorage.setItem("access_token", access_token);
           console.log("Success!")
-      }
-      if ( data.refresh_token  != undefined ){
-          refresh_token = data.refresh_token;
-          localStorage.setItem("refresh_token", refresh_token);
       }
       onPageLoad();
   }
