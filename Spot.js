@@ -1,4 +1,5 @@
 const AUTHORIZE = "https://accounts.spotify.com/authorize";
+const PLAYLISTS = "https://api.spotify.com/v1/me/playlists";
 const TOKEN = "https://accounts.spotify.com/api/token";
 const REDIRECTURI = "https://kevinkevink.github.io/SpotTest/Home";
 
@@ -109,6 +110,8 @@ function handlePlaylistsResponse(){
       console.log(playlistNum);
       console.log(data);
       $("scrollableDiv").css("height:", (playlistNum * 80).toString());
+      $("scrollableDiv").css("grid-template-rows:", "repeat(" + playlistNum - 1 + ", 1fr)");
+
       //set size to playlists * 80
       data.items.forEach(item => addPlaylist(item));
   }
@@ -122,6 +125,12 @@ function handlePlaylistsResponse(){
 }
 
 function addPlaylist(item){
+//add one div under scrollableDiv
+$("scrollableDiv").append("");
+//set its height to 80px, width 100%, display grid with 3 columns 10 80 10
+//3 divs inside, one in each column
+
+
   //HTML TO ADD PLAYLIST TO PAGE
   //let node = document.createElement("option");
   //node.value = item.id;
