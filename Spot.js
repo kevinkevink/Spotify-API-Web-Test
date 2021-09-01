@@ -93,12 +93,23 @@ function handleAuthorizationResponse(){
   }
 }
 
+function callApi(method, url, body, callback){
+  let xhr = new XMLHttpRequest();
+  xhr.open(method, url, true);
+  xhr.setRequestHeader('Content-Type', 'application/json');
+  xhr.setRequestHeader('Authorization', 'Bearer ' + access_token);
+  xhr.send(body);
+  xhr.onload = callback;
+}
+
 function handlePlaylistsResponse(){
   if ( this.status == 200 ){
       var data = JSON.parse(this.responseText);
       playlistNum = data.total;
       console.log(playlistNum);
       console.log(data);
+      $("scrollableDiv").css("height:", (playlistNum * 80).toString());
+      //set size to playlists * 80
       data.items.forEach(item => addPlaylist(item));
   }
   else if ( this.status == 401 ){
