@@ -202,7 +202,6 @@ input:checked + .slider:before {
   overflow:auto;
 }
 #scrollableDiv{
-  height:1500px;
   display:grid;
 }
 

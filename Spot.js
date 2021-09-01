@@ -106,11 +106,11 @@ function callApi(method, url, body, callback){
 function handlePlaylistsResponse(){
   if ( this.status == 200 ){
       var data = JSON.parse(this.responseText);
-      playlistNum = data.total;
+      playlistNum = data.limit;
       console.log(playlistNum);
       console.log(data);
-      $("scrollableDiv").css("height:", (playlistNum * 80).toString());
-      $("scrollableDiv").css("grid-template-rows:", "repeat(" + playlistNum - 1 + ", 1fr)");
+      $("#scrollableDiv").css("height:", (playlistNum * 80).toString());
+      $("#scrollableDiv").css("grid-template-rows:", "repeat(" + playlistNum - 1 + ", 1fr)");
 
       //set size to playlists * 80
       data.items.forEach(item => addPlaylist(item));
@@ -126,7 +126,7 @@ function handlePlaylistsResponse(){
 
 function addPlaylist(item){
 //add one div under scrollableDiv
-$("scrollableDiv").append("");
+$("#scrollableDiv").append("<div><\div>");
 //set its height to 80px, width 100%, display grid with 3 columns 10 80 10
 //3 divs inside, one in each column
 
