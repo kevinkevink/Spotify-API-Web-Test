@@ -11,6 +11,7 @@ var client_secret = "742582b3ead642e0b2ccd825fda0fe44";
 
 var access_token = null;
 var currentPlaylist = "";
+var playlistNum = 0;
 
 
 function onPageLoad(){
@@ -95,6 +96,9 @@ function handleAuthorizationResponse(){
 function handlePlaylistsResponse(){
   if ( this.status == 200 ){
       var data = JSON.parse(this.responseText);
+      playlistNum = data.total;
+      console.log(playlistNum);
+      console.log(data);
       data.items.forEach(item => addPlaylist(item));
   }
   else if ( this.status == 401 ){
