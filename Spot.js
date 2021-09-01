@@ -16,22 +16,18 @@ var currentPlaylist = "";
 function onPageLoad(){
   if ( window.location.search.length > 0 ){
     handleRedirect();
-    $("#lightstitle").append(" <b>TEST1</b>.");
   }else{
     access_token = localStorage.getItem("access_token");
     if ( access_token == null ){
       // we don't have an access token so present token section
-      $("#lightstitle").append(" <b>Fail</b>.");
     }else{
       // we have an access token so present device section
-      $("#lightstitle").append(" <b>Success</b>.");
       refreshPlaylists();
   }
   }
 }
 
 function handleRedirect(){
-  $("#lightstitle").append(" <b>TEST2</b>.");
   let code = getCode();
   fetchAccessToken(code);
   window.history.pushState("", "", REDIRECTURI); // remove param from url
@@ -52,7 +48,6 @@ function requestAuthorization(){
 }
 //GETS CODE FROM QUERY STRING
 function getCode(){
-  $("#lightstitle").append(" <b>TEST3</b>.");
   let code = null;
   const queryString = window.location.search;
   if ( queryString.length > 0 ){
@@ -63,7 +58,6 @@ function getCode(){
 }
 
 function fetchAccessToken( code ){
-  $("#lightstitle").append(" <b>TEST4</b>.");
   let body = "grant_type=authorization_code";
   body += "&code=" + code; 
   body += "&redirect_uri=" + encodeURI(REDIRECTURI);
@@ -83,7 +77,6 @@ function callAuthorizationApi(body){
 }
 //reads token response
 function handleAuthorizationResponse(){
-  $("#lightstitle").append(" <b>TEST5</b>.");
   if ( this.status == 200 ){
       var data = JSON.parse(this.responseText);
       if ( data.access_token != undefined ){
