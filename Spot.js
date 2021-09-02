@@ -109,11 +109,12 @@ function handlePlaylistsResponse(){
       playlistNum = data.limit;
       console.log(playlistNum);
       console.log(data);
-      $("#scrollableDiv").css("height:", (playlistNum * 80).toString());
+      $("#scrollableDiv").css("height:", (playlistNum * 80).toString() + "px");
       $("#scrollableDiv").css("grid-template-rows:", "repeat(" + playlistNum - 1 + ", 1fr)");
 
       //set size to playlists * 80
-      data.items.forEach(item => addPlaylist(item));
+      //data.items.forEach(item => addPlaylist(item));
+      $("#scrollableDiv").append("<div class='albumFrame' ><\div>");
   }
   else if ( this.status == 401 ){
       //refreshAccessToken()
@@ -124,9 +125,8 @@ function handlePlaylistsResponse(){
   }
 }
 
-function addPlaylist(item){
+//function addPlaylist(item){
 //add one div under scrollableDiv
-$("#scrollableDiv").append("<div class='albumFrame' ><\div>");
 //set its height to 80px, width 100%, display grid with 3 columns 10 80 10
 //3 divs inside, one in each column
 
