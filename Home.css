@@ -204,5 +204,11 @@ input:checked + .slider:before {
 #scrollableDiv{
   display:grid;
 }
+.albumFrame{
+  height:80px;
+  width:100%;
+  display: grid;
+  grid-template-columns: 10% 80% 10%;
+}
 
 

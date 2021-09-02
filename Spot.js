@@ -126,7 +126,7 @@ function handlePlaylistsResponse(){
 
 function addPlaylist(item){
 //add one div under scrollableDiv
-$("#scrollableDiv").append("<div><\div>");
+$("#scrollableDiv").append("<div class='albumFrame' ><\div>");
 //set its height to 80px, width 100%, display grid with 3 columns 10 80 10
 //3 divs inside, one in each column
 
