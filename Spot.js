@@ -121,9 +121,10 @@ function handlePlaylistsResponse(){
 
         $("#albumFrame" + i).append("<div id='titleBox" + i + "' class='titleBox' ><\div>");
         $("#titleBox" + i).empty();
-        $("#titleBox" + i).append("<h id='albumWords" + i + "' class='albumWords' > AHHHHH <\h>");
+        $("#titleBox" + i).append("<h id='albumWords" + i + "' class='albumWords' > " + data.items[0].name + "<\h>");
         //album picture
         $("#albumFrame" + i).append("<div id='albumBox" + i + "' class='albumBox' ><\div>");
+        $("#albumBox" + i).append("<img src='" + data.items[0].images[0].url + "'></img>");
         //play button
         $("#albumFrame" + i).append("<div id='playBox" + i + "' class='playBox' ><\div>");
         $("#playBox" + i).append("<img class='playImage' src='playbutton.png'></img>");
