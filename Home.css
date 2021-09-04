@@ -246,4 +246,7 @@ input:checked + .slider:before {
   font-size: 5vw;
   color:black;
   z-index: 100;
+  overflow: hidden;
+  text-overflow: clip; 
+  white-space: nowrap; 
 }
