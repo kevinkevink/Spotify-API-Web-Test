@@ -111,7 +111,7 @@ function handlePlaylistsResponse(){
       playlistNum = data.limit;
       console.log(playlistNum);
       console.log(data);
-      console.log(data.items["0"]["images"]['0'][url]);
+      console.log(data.items[0].images[0].url);
       $("#scrollableDiv").css("height:", (playlistNum * 80).toString() + "px");
       $("#scrollableDiv").css("grid-template-rows:", "repeat(" + playlistNum - 1 + ", 1fr)");
       for (let i = 0; i < playlistNum; i++) { 
