@@ -106,41 +106,28 @@ function callApi(method, url, body, callback){
 }
 
 function handlePlaylistsResponse(){
-  playlistNum = 20;
-  $("#scrollableDiv").css("height:", (playlistNum * 80).toString() + "px");
-  $("#scrollableDiv").css("grid-template-rows:", "repeat(" + playlistNum - 1 + ", 1fr)");
-
-      //set size to playlists * 80
-      //data.items.forEach(item => addPlaylist(item));
-  for (let i = 0; i < playlistNum; i++) { 
-    
-    //$("#scrollableDiv").append(
-    //"<div id='albumFrame" + i + "' class='albumFrame'>" +
-    //  "<div id='albumBox" + i + "' class='albumBox' ><\div>" +
-    //"<\div>" +
-    //"<div id='titleBox" + i + "' class='titleBox' >" +
-    //  "<h id='albumWords" + i + "' class='albumWords' > AHHHHH <\h>" +
-    //"</div>" +
-    //"<div id='playBox" + i + "' class='playBox' >" +
-    //  "<img class='playImage' src='playbutton.png'></img>" +
-    //"<\div>");
-    $("#scrollableDiv").append("<div id='albumFrame" + i + "' class='albumFrame'><\div>");
-    $("#albumFrame" + i).append("<div id='titleBox" + i + "' class='titleBox' ><\div>");
-    $("#albumFrame" + i).append("<div id='albumBox" + i + "' class='albumBox' ><\div>");
-    $("#albumFrame" + i).append("<div id='playBox" + i + "' class='playBox' ><\div>");
-    $("#playBox" + i).append("<img class='playImage' src='playbutton.png'></img>");
-    $("#titleBox" + i).append("<h id='albumWords" + i + "' class='albumWords' > AHHHHH <\h>");
-    
-  }
   if ( this.status == 200 ){
       var data = JSON.parse(this.responseText);
       playlistNum = data.limit;
       console.log(playlistNum);
       console.log(data);
+      console.log(data.items["0"]["images"]['0'][url]);
+      $("#scrollableDiv").css("height:", (playlistNum * 80).toString() + "px");
+      $("#scrollableDiv").css("grid-template-rows:", "repeat(" + playlistNum - 1 + ", 1fr)");
+      for (let i = 0; i < playlistNum; i++) { 
+        $("#scrollableDiv").append("<div id='albumFrame" + i + "' class='albumFrame'><\div>");
+        //title
+        //JSON.items.0.images.0.url
 
-      //insert the rest
-      
-      
+        $("#albumFrame" + i).append("<div id='titleBox" + i + "' class='titleBox' ><\div>");
+        $("#titleBox" + i).empty();
+        $("#titleBox" + i).append("<h id='albumWords" + i + "' class='albumWords' > AHHHHH <\h>");
+        //album picture
+        $("#albumFrame" + i).append("<div id='albumBox" + i + "' class='albumBox' ><\div>");
+        //play button
+        $("#albumFrame" + i).append("<div id='playBox" + i + "' class='playBox' ><\div>");
+        $("#playBox" + i).append("<img class='playImage' src='playbutton.png'></img>");
+      }
   }
   else if ( this.status == 401 ){
       //refreshAccessToken()
