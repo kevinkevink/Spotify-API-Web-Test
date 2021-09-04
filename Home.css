@@ -22,7 +22,7 @@ html, body {
   }
   .bar {
     background-color: black;
-    height: 1000px;
+    height: 100vh;
     width: 100px;
   }
   .scrollitem{
@@ -208,8 +208,39 @@ input:checked + .slider:before {
   height:80px;
   width:100%;
   display: grid;
-  grid-template-columns: 10% 80% 10%;
-  color:red;
+  grid-template-columns: 80px 1fr 80px;
 }
-
-
+.albumBox{
+  height:60px;
+  width:60px;
+  grid-column: 1;
+  margin-top: 10px;
+  background-color: blue;
+  margin-left: 10px;
+}
+.playBox{
+  height:60px;
+  width: 60px;
+  grid-column: 3;
+  margin-top:10px;
+  margin-right: 10px;
+  margin-left: 10px;
+  background-color: blue;
+}
+.playImage{
+  height:60px;
+  width: 60px;
+  margin:auto;
+}
+.titleBox{
+  grid-column:2;
+  display:grid;
+  height:100%;
+  width:100%;
+}
+.albumWords{
+  margin:auto;
+  font-size: 5vw;
+  color:black;
+  z-index: 100;
+}

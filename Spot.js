@@ -22,6 +22,8 @@ function onPageLoad(){
     access_token = localStorage.getItem("access_token");
     if ( access_token == null ){
       // we don't have an access token so present token section
+      //MSUT REMOTVE MEOTU MUST REMOVE MUST REMOVE MUST REMOVE MUST REMOVE MUST REMOVE
+      handlePlaylistsResponse();
     }else{
       // we have an access token so present device section
       refreshPlaylists();
@@ -104,17 +106,41 @@ function callApi(method, url, body, callback){
 }
 
 function handlePlaylistsResponse(){
+  playlistNum = 20;
+  $("#scrollableDiv").css("height:", (playlistNum * 80).toString() + "px");
+  $("#scrollableDiv").css("grid-template-rows:", "repeat(" + playlistNum - 1 + ", 1fr)");
+
+      //set size to playlists * 80
+      //data.items.forEach(item => addPlaylist(item));
+  for (let i = 0; i < playlistNum; i++) { 
+    
+    //$("#scrollableDiv").append(
+    //"<div id='albumFrame" + i + "' class='albumFrame'>" +
+    //  "<div id='albumBox" + i + "' class='albumBox' ><\div>" +
+    //"<\div>" +
+    //"<div id='titleBox" + i + "' class='titleBox' >" +
+    //  "<h id='albumWords" + i + "' class='albumWords' > AHHHHH <\h>" +
+    //"</div>" +
+    //"<div id='playBox" + i + "' class='playBox' >" +
+    //  "<img class='playImage' src='playbutton.png'></img>" +
+    //"<\div>");
+    $("#scrollableDiv").append("<div id='albumFrame" + i + "' class='albumFrame'><\div>");
+    $("#albumFrame" + i).append("<div id='titleBox" + i + "' class='titleBox' ><\div>");
+    $("#albumFrame" + i).append("<div id='albumBox" + i + "' class='albumBox' ><\div>");
+    $("#albumFrame" + i).append("<div id='playBox" + i + "' class='playBox' ><\div>");
+    $("#playBox" + i).append("<img class='playImage' src='playbutton.png'></img>");
+    $("#titleBox" + i).append("<h id='albumWords" + i + "' class='albumWords' > AHHHHH <\h>");
+    
+  }
   if ( this.status == 200 ){
       var data = JSON.parse(this.responseText);
       playlistNum = data.limit;
       console.log(playlistNum);
       console.log(data);
-      $("#scrollableDiv").css("height:", (playlistNum * 80).toString() + "px");
-      $("#scrollableDiv").css("grid-template-rows:", "repeat(" + playlistNum - 1 + ", 1fr)");
 
-      //set size to playlists * 80
-      //data.items.forEach(item => addPlaylist(item));
-      $("#scrollableDiv").append("<div class='albumFrame' ><\div>");
+      //insert the rest
+      
+      
   }
   else if ( this.status == 401 ){
       //refreshAccessToken()
@@ -136,7 +162,7 @@ function handlePlaylistsResponse(){
   //node.value = item.id;
   //node.innerHTML = item.name + " (" + item.tracks.total + ")";
   //document.getElementById("playlists").appendChild(node); 
-}
+//}
 //https://github.com/makeratplay/SpotifyWebAPI/blob/main/app.js
 
 //https://developer.spotify.com/documentation/general/guides/authorization-guide/
