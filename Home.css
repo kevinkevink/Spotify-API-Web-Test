@@ -217,7 +217,7 @@ input:checked + .slider:before {
   grid-column: 1;
   grid-row: 1;
   margin-top: 10px;
-  background-color: blue;
+  background-color: black;
   margin-left: 10px;
 }
 .playBox{
