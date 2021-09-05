@@ -106,6 +106,7 @@ function callApi(method, url, body, callback){
 }
 
 function handlePlaylistsResponse(){
+  
   if ( this.status == 200 ){
       var data = JSON.parse(this.responseText);
       playlistNum = data.limit;
@@ -122,6 +123,7 @@ function handlePlaylistsResponse(){
         $("#albumFrame" + i).append("<div id='titleBox" + i + "' class='titleBox' ><\div>");
         $("#titleBox" + i).empty();
         $("#titleBox" + i).append("<h id='albumWords" + i + "' class='albumWords' > " + data.items[i].name + "<\h>");
+        resizeText("titleBox" + i,"albumWords" + i);
         //album picture
         $("#albumFrame" + i).append("<div id='albumBox" + i + "' class='albumBox' ><\div>");
         $("#albumBox" + i).append("<img id='playimage' src='" + data.items[i].images[i].url + "'></img>");
@@ -139,6 +141,20 @@ function handlePlaylistsResponse(){
   }
 }
 
+function resizeText(largerFrame, text){
+  var llength = $("#" + largerFrame).width();
+  var slength = $("#" + text).width();
+  console.log(llength);
+  console.log(slength);
+  var fontSize = 5;
+  $("#" + text).css("font-size", fontSize + "vw");
+  while(llength < slength){
+    fontSize = fontSize - 0.2;
+    $("#" + text).css("font-size", fontSize + "vw");
+    llength = $("#" + largerFrame).width();
+    slength = $("#" + text).width();
+  }
+}
 //function addPlaylist(item){
 //add one div under scrollableDiv
 //set its height to 80px, width 100%, display grid with 3 columns 10 80 10
