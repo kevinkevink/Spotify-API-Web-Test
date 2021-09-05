@@ -126,7 +126,7 @@ function handlePlaylistsResponse(){
         resizeText("titleBox" + i,"albumWords" + i);
         //album picture
         $("#albumFrame" + i).append("<div id='albumBox" + i + "' class='albumBox' ><\div>");
-        $("#albumBox" + i).append("<img id='playimage' src='" + data.items[i].images[i].url + "'></img>");
+        $("#albumBox" + i).append("<img class='playImage' src='" + data.items[i].images[i].url + "'></img>");
         //play button
         $("#albumFrame" + i).append("<div id='playBox" + i + "' class='playBox' ><\div>");
         $("#playBox" + i).append("<img class='playImage' src='playbutton.png'></img>");
