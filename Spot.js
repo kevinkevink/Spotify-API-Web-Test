@@ -2,8 +2,9 @@ const AUTHORIZE = "https://accounts.spotify.com/authorize";
 const PLAYLISTS = "https://api.spotify.com/v1/me/playlists";
 const TOKEN = "https://accounts.spotify.com/api/token";
 const REDIRECTURI = "https://kevinkevink.github.io/SpotTest/Home";
-
-
+const PLAYER = "https://api.spotify.com/v1/me/player";
+const PLAY = "https://api.spotify.com/v1/me/player/play";
+const DEVICES = "https://api.spotify.com/v1/me/player/devices";
 
 
 var client_id = "abb0f2503c27448b9c53f509d4112949";
@@ -24,6 +25,7 @@ function onPageLoad(){
       // we don't have an access token so present token section
       //MSUT REMOTVE MEOTU MUST REMOVE MUST REMOVE MUST REMOVE MUST REMOVE MUST REMOVE
       handlePlaylistsResponse();
+      transferToSpeaker();
     }else{
       // we have an access token so present device section
       refreshPlaylists();
@@ -154,6 +156,57 @@ function resizeText(largerFrame, text){
     llength = $("#" + largerFrame).width();
     slength = $("#" + text).width();
   }
+}
+
+function transferToSpeaker(){
+//print device info
+    //https://developer.spotify.com/console/get-user-player/
+    callApi( "GET", DEVICES, null, handleDevicesResponse);
+  //transfer playback to speaker
+    //https://developer.spotify.com/console/put-user-player/
+
+   // let body = {};
+    //body.device_ids = [];
+    //body.device_ids.push(deviceId())
+   // callApi( "PUT", PLAYER, JSON.stringify(body), handleApiResponse );
+}
+
+function handleDevicesResponse(){
+  if ( this.status == 200 ){
+      var data = JSON.parse(this.responseText);
+      console.log(data);
+  }
+  else if ( this.status == 401 ){
+     // refreshAccessToken()
+  }
+  else {
+      console.log(this.responseText);
+      alert(this.responseText);
+  }
+}
+
+function buttonAction(id, pid){
+  
+  //play playlist
+  let body = {};
+  body.context_uri = "spotify:playlist:" + pid;
+  body.offset = {};
+  body.offset.position = 0;
+  body.offset.position_ms = 0;
+  callApi( "PUT", PLAY + "?device_id=" + deviceId(), JSON.stringify(body), handleApiResponse );
+}
+
+function handleApiResponse(){
+  if ( this.status == 200){
+      console.log(this.responseText);
+  }
+  else if ( this.status == 401 ){
+      //refreshAccessToken()
+  }
+  else {
+      console.log(this.responseText);
+      alert(this.responseText);
+  }    
 }
 //function addPlaylist(item){
 //add one div under scrollableDiv
