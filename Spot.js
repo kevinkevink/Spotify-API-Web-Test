@@ -5,6 +5,7 @@ const REDIRECTURI = "https://kevinkevink.github.io/SpotTest/Home";
 const PLAYER = "https://api.spotify.com/v1/me/player";
 const PLAY = "https://api.spotify.com/v1/me/player/play";
 const DEVICES = "https://api.spotify.com/v1/me/player/devices";
+const ECHO_ID = "21f5e777fb80b905f0c70caf97896723427f33be";
 
 
 var client_id = "abb0f2503c27448b9c53f509d4112949";
@@ -165,10 +166,10 @@ function transferToSpeaker(){
   //transfer playback to speaker
     //https://developer.spotify.com/console/put-user-player/
 
-   // let body = {};
-    //body.device_ids = [];
-    //body.device_ids.push(deviceId())
-   // callApi( "PUT", PLAYER, JSON.stringify(body), handleApiResponse );
+    let body = {};
+    body.device_ids = [];
+    body.device_ids.push(ECHO_ID);
+    callApi( "PUT", PLAYER, JSON.stringify(body), handleApiResponse );
 }
 
 function handleDevicesResponse(){
