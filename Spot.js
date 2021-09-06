@@ -25,11 +25,11 @@ function onPageLoad(){
       // we don't have an access token so present token section
       //MSUT REMOTVE MEOTU MUST REMOVE MUST REMOVE MUST REMOVE MUST REMOVE MUST REMOVE
       handlePlaylistsResponse();
-      transferToSpeaker();
     }else{
       // we have an access token so present device section
       refreshPlaylists();
-  }
+    }
+    transferToSpeaker();
   }
 }
 
