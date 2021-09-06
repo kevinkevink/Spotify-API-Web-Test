@@ -132,7 +132,8 @@ function handlePlaylistsResponse(){
         $("#albumBox" + i).append("<img class='playImage' src='" + data.items[i].images[0].url + "'></img>");
         //play button
         $("#albumFrame" + i).append("<div id='playBox" + i + "' class='playBox' ><\div>");
-        $("#playBox" + i).append("<img class='playImage' src='playbutton.png'></img>");
+        $("#playBox" + i).append("<img id='playButton" + i + "' class='playImage' src='playbutton.png'></img>");
+        $("#playButton" + i).click(buttonAction(data.items[i].id));
       }
   }
   else if ( this.status == 401 ){
@@ -186,7 +187,7 @@ function handleDevicesResponse(){
   }
 }
 
-function buttonAction(id, pid){
+function buttonAction(pid){
   
   //play playlist
   let body = {};
@@ -194,7 +195,7 @@ function buttonAction(id, pid){
   body.offset = {};
   body.offset.position = 0;
   body.offset.position_ms = 0;
-  callApi( "PUT", PLAY + "?device_id=" + deviceId(), JSON.stringify(body), handleApiResponse );
+  callApi( "PUT", PLAY + "?device_id=" + ECHO_ID, JSON.stringify(body), handleApiResponse );
 }
 
 function handleApiResponse(){
