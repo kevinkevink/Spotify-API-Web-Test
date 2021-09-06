@@ -134,7 +134,7 @@ function handlePlaylistsResponse(){
         $("#albumFrame" + i).append("<div id='playBox" + i + "' class='playBox' ><\div>");
         $("#playBox" + i).append("<img id='playButton" + i + "' class='playImage' src='playbutton.png'></img>");
         $("#playButton" + i).click(function(){
-          //buttonAction(data.items[i].id)
+          buttonAction(data.items[i].id)
           console.log(i);
           }
           );
