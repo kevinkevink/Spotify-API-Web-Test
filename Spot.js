@@ -178,6 +178,11 @@ function handleDevicesResponse(){
   if ( this.status == 200 ){
       var data = JSON.parse(this.responseText);
       console.log(data);
+      for(i =0; i < data.length; i++){
+        if(data[i].name === "Everywhere"){
+          ECHO_ID = data[i].id;
+        }
+      }
   }
   else if ( this.status == 401 ){
      // refreshAccessToken()
