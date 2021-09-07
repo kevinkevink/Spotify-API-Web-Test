@@ -167,7 +167,7 @@ function resizeText(largerFrame, text){
 function transferToSpeaker(){
   //transfer playback to speaker
     //https://developer.spotify.com/console/put-user-player/
-
+    callApi( "GET", DEVICES, null, handleDevicesResponse);
     let body = {};
     body.device_ids = [];
     body.device_ids.push(ECHO_ID);
@@ -183,8 +183,8 @@ function handleDevicesResponse(){
      // refreshAccessToken()
   }
   else {
-      console.log(this.responseText);
-      alert(this.responseText);
+      console.log(this.message);
+      alert(this.message);
   }
 }
 
