@@ -5,7 +5,9 @@ const REDIRECTURI = "https://kevinkevink.github.io/SpotTest/Home";
 const PLAYER = "https://api.spotify.com/v1/me/player";
 const PLAY = "https://api.spotify.com/v1/me/player/play";
 const DEVICES = "https://api.spotify.com/v1/me/player/devices";
-const ECHO_ID = "21f5e777fb80b905f0c70caf97896723427f33be";
+
+
+var ECHO_ID = "21f5e777fb80b905f0c70caf97896723427f33be";
 
 
 var client_id = "abb0f2503c27448b9c53f509d4112949";
