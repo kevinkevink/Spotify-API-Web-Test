@@ -178,9 +178,9 @@ function handleDevicesResponse(){
   if ( this.status == 200 ){
       var data = JSON.parse(this.responseText);
       console.log(data);
-      for(i =0; i < data.length; i++){
-        if(data[i].name === "Everywhere"){
-          ECHO_ID = data[i].id;
+      for(i =0; i < data.devices.length; i++){
+        if(data.devices[i].name === "Everywhere"){
+          ECHO_ID = data.devices[i].id;
         }
       }
   }
