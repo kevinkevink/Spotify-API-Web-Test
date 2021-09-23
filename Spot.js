@@ -136,7 +136,8 @@ function handlePlaylistsResponse(){
             }
           );
         $("#playButton" + i).click(function(){
-         // $("#playButton" + i).css("")
+          $("#playButton" + i).css("border-style", "groove");
+          $("#playButton" + i).css("border-color", "lightblue");
         });
       }
   }

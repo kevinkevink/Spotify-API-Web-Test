@@ -233,8 +233,6 @@ input:checked + .slider:before {
   height:60px;
   width: 60px;
   margin:auto;
-  border-style: groove;
-  border-color: lightblue;
 }
 .titleBox{
   grid-row: 1;
