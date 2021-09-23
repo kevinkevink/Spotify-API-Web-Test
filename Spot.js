@@ -7,7 +7,7 @@ const PLAY = "https://api.spotify.com/v1/me/player/play";
 const DEVICES = "https://api.spotify.com/v1/me/player/devices";
 
 
-var ECHO_ID = "21f5e777fb80b905f0c70caf97896723427f33be";
+var ECHO_ID = "0";
 
 
 var client_id = "abb0f2503c27448b9c53f509d4112949";
@@ -171,10 +171,6 @@ function transferToSpeaker(){
   //transfer playback to speaker
     //https://developer.spotify.com/console/put-user-player/
     callApi( "GET", DEVICES, null, handleDevicesResponse);
-    let body = {};
-    body.device_ids = [];
-    body.device_ids.push(ECHO_ID);
-    callApi( "PUT", PLAYER, JSON.stringify(body), handleApiResponse );
 }
 
 function handleDevicesResponse(){
@@ -186,6 +182,10 @@ function handleDevicesResponse(){
           ECHO_ID = data.devices[i].id;
         }
       }
+      let body = {};
+    body.device_ids = [];
+    body.device_ids.push(ECHO_ID);
+    callApi( "PUT", PLAYER, JSON.stringify(body), handleApiResponse );
   }
   else if ( this.status == 401 ){
      // refreshAccessToken()
