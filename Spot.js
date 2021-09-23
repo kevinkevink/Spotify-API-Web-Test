@@ -135,9 +135,12 @@ function handlePlaylistsResponse(){
           buttonAction(data.items[i].id);
             }
           );
-        $("#playButton" + i).click(function(){
+        $("#playButton" + i).mousedown(function(){
           $("#playButton" + i).css("border-style", "groove");
           $("#playButton" + i).css("border-color", "lightblue");
+        });
+        $("#playButton" + i).mouseup(function(){
+          $("#playButton" + i).css("border-style", "none");
         });
       }
   }
