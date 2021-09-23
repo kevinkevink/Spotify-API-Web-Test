@@ -97,7 +97,7 @@ function handleAuthorizationResponse(){
   }
   else {
       console.log(this.responseText);
-      alert(this.responseText);
+      //alert(this.responseText);
   }
 }
 
@@ -148,15 +148,13 @@ function handlePlaylistsResponse(){
   }
   else {
       console.log(this.responseText);
-      alert(this.responseText);
+      //alert(this.responseText);
   }
 }
 
 function resizeText(largerFrame, text){
   var llength = $("#" + largerFrame).width();
   var slength = $("#" + text).width();
-  console.log(llength);
-  console.log(slength);
   var fontSize = 5;
   $("#" + text).css("font-size", fontSize + "vw");
   while(llength < slength){
@@ -192,7 +190,7 @@ function handleDevicesResponse(){
   }
   else {
       console.log(this.message);
-      alert(this.message);
+      //alert(this.message);
   }
 }
 
@@ -216,7 +214,7 @@ function handleApiResponse(){
   }
   else {
       console.log(this.responseText);
-      alert(this.responseText);
+      //alert(this.responseText);
   }    
 }
 //function addPlaylist(item){
