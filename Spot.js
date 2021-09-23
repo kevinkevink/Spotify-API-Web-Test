@@ -24,6 +24,7 @@ function onPageLoad(){
     handleRedirect();
   }else{
     access_token = localStorage.getItem("access_token");
+    transferToSpeaker();
     if ( access_token == null ){
       // we don't have an access token so present token section
       //MSUT REMOTVE MEOTU MUST REMOVE MUST REMOVE MUST REMOVE MUST REMOVE MUST REMOVE
@@ -32,7 +33,6 @@ function onPageLoad(){
       // we have an access token so present device section
       refreshPlaylists();
     }
-    transferToSpeaker();
   }
 }
 
@@ -111,6 +111,7 @@ function callApi(method, url, body, callback){
 }
 
 function handlePlaylistsResponse(){
+  print(this.status);
   
   if ( this.status == 200 ){
       var data = JSON.parse(this.responseText);
@@ -143,7 +144,7 @@ function handlePlaylistsResponse(){
       }
   }
   else if ( this.status == 401 ){
-      //refreshAccessToken()
+      refreshAccessToken()
   }
   else {
       console.log(this.responseText);
