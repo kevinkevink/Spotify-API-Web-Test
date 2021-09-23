@@ -111,14 +111,9 @@ function callApi(method, url, body, callback){
 }
 
 function handlePlaylistsResponse(){
-  print(this.status);
-  
   if ( this.status == 200 ){
       var data = JSON.parse(this.responseText);
       playlistNum = data.limit;
-      console.log(playlistNum);
-      console.log(data);
-      console.log(data.items[0].images[0].url);
       $("#scrollableDiv").css("height:", (playlistNum * 80).toString() + "px");
       $("#scrollableDiv").css("grid-template-rows:", "repeat(" + playlistNum - 1 + ", 1fr)");
       for (let i = 0; i < playlistNum; i++) { 
@@ -137,10 +132,12 @@ function handlePlaylistsResponse(){
         $("#albumFrame" + i).append("<div id='playBox" + i + "' class='playBox' ><\div>");
         $("#playBox" + i).append("<img id='playButton" + i + "' class='playImage' src='playbutton.png'></img>");
         $("#playButton" + i).click(function(){
-          buttonAction(data.items[i].id)
-          console.log(i);
-          }
+          buttonAction(data.items[i].id);
+            }
           );
+        $("#playButton" + i).click(function(){
+         // $("#playButton" + i).css("")
+        });
       }
   }
   else if ( this.status == 401 ){
