@@ -1,3 +1,7 @@
+*:focus {
+  outline: none;
+}
+
 html, body {
     background-color: rgb(68, 67, 67);
     height: 100%;

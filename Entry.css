@@ -1,3 +1,7 @@
+*:focus {
+  outline: none;
+}
+
 html {
   font-size: 500.01%;
   height: 100%;
